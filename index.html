@@ -5,159 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ELEV8 – Coming Soon</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #0e0e0e;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
-      color: white;
-    }
-
     body {
+      margin: 0;
+      background: #0a0a0a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      position: relative;
-      z-index: 1;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .logo {
-      font-size: 3.5rem;
-      font-weight: bold;
-      letter-spacing: 0.15em;
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.3rem;
       display: flex;
       align-items: center;
-      z-index: 2;
+      margin: 0;
     }
 
-    .rotating-wrapper {
+    .infinity {
       display: inline-block;
-      perspective: 800px;
-      margin-left: 0.25em;
+      width: 1.2em;
+      height: 1.5em;
+      margin-left: 0.2em;
+      position: relative;
+      transform-style: preserve-3d;
     }
 
-    .infinity-svg {
-      width: 1.6em;
-      height: 1.6em;
-      transform-origin: center;
-      animation: rotate3D 12s linear infinite;
+    .infinity::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1.2em;
+      height: 1.5em;
+      transform: translate(-50%, -50%);
+      border: 0.15em solid #FFA500;
+      border-radius: 50% 50% / 45% 45%;
+      box-shadow: 0 0 15px #FFA500, 0 0 30px #FFB347;
+      animation: breathe 6s ease-in-out infinite;
+      background: radial-gradient(circle at center, rgba(255,165,0,0.2), transparent);
     }
 
-    @keyframes rotate3D {
-      0%   { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
+    @keyframes breathe {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+      }
     }
 
     .tagline {
+      margin-top: 1.2rem;
       font-size: 1.2rem;
-      color: #ffa500;
-      margin-top: 10px;
-      text-shadow: 0 0 10px orange, 0 0 20px orange;
-      z-index: 2;
+      color: #FFA500;
+      text-shadow: 0 0 8px #FFA500, 0 0 16px #ffb347;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 4px #FFA500;
+      }
+      to {
+        text-shadow: 0 0 12px #FFA500, 0 0 24px #FFB347;
+      }
     }
 
     footer {
       position: absolute;
-      bottom: 20px;
+      bottom: 10px;
       font-size: 0.8rem;
-      color: #444;
-      z-index: 2;
-    }
-
-    .smoke {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .smoke span {
-      position: absolute;
-      bottom: -300px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.08;
-      animation: smokeRise 35s linear infinite;
-    }
-
-    .smoke span:nth-child(1) { left: 10%; animation-delay: 0s; transform: rotate(20deg); }
-    .smoke span:nth-child(2) { left: 30%; animation-delay: 4s; transform: rotate(-10deg); }
-    .smoke span:nth-child(3) { left: 50%; animation-delay: 8s; transform: rotate(15deg); }
-    .smoke span:nth-child(4) { left: 70%; animation-delay: 2s; transform: rotate(-5deg); }
-    .smoke span:nth-child(5) { left: 90%; animation-delay: 6s; transform: rotate(25deg); }
-
-    @keyframes smokeRise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.15;
-      }
-      50% {
-        opacity: 0.05;
-      }
-      100% {
-        transform: translateY(-1200px) scale(2);
-        opacity: 0;
-      }
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <!-- SMOKE BACKGROUND -->
-  <div class="smoke">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-
-  <!-- LOGO WITH MORPHING GLOWING ROTATING 8 -->
-  <div class="logo">
-    ELEV
-    <div class="rotating-wrapper">
-      <svg class="infinity-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <path id="morph"
-          d="M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z"
-          fill="none"
-          stroke="orange"
-          stroke-width="6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          filter="url(#neon-glow)"
-        >
-          <animate attributeName="d"
-            values="
-              M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z;
-              M50,10 C80,10 80,45 50,50 C20,55 20,90 50,90 C80,90 80,55 50,50 C20,45 20,10 50,10 Z;
-              M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z"
-            dur="6s"
-            repeatCount="indefinite" />
-        </path>
-      </svg>
-    </div>
-  </div>
-
+  <h1>
+    ELEV<span class="infinity"></span>
+  </h1>
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-
-  <footer>
-    &copy; 2025 Elev8. All rights reserved.
-  </footer>
+  <footer>© 2025 Elev8. All rights reserved.</footer>
 </body>
 </html>
