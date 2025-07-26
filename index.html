@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ELEV8 – Coming Soon</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      overflow: hidden;
       background: #0e0e0e;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
     }
 
     .logo {
       font-size: 3.5rem;
       font-weight: bold;
       letter-spacing: 0.15em;
+      z-index: 2;
     }
 
     .logo .infinity {
@@ -33,13 +35,10 @@
 
     .tagline {
       font-size: 1.2rem;
-      color: #aaa;
+      color: #ffa500;
       margin-top: 10px;
-    }
-
-    .glow {
-      color: orange;
       text-shadow: 0 0 10px orange, 0 0 20px orange;
+      z-index: 2;
     }
 
     footer {
@@ -47,17 +46,72 @@
       bottom: 20px;
       font-size: 0.8rem;
       color: #444;
+      z-index: 2;
     }
-  </style>
-</head>
-<body>
-  <div class="logo">
-    ELEV<span class="infinity">∞</span>
-  </div>
-  <div class="tagline glow">Lifestyle Vapor. Coming Soon.</div>
 
-  <footer>
-    &copy; 2025 Elev8. All rights reserved.
-  </footer>
-</body>
-</html>
+    /* Smoke styles */
+    .smoke {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .smoke span {
+      position: absolute;
+      display: block;
+      bottom: -150px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 80%);
+      animation: smokeRise 20s linear infinite;
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(30px);
+    }
+
+    .smoke span:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+
+    .smoke span:nth-child(2) {
+      left: 30%;
+      animation-delay: 2s;
+      animation-duration: 22s;
+    }
+
+    .smoke span:nth-child(3) {
+      left: 50%;
+      animation-delay: 4s;
+      animation-duration: 20s;
+    }
+
+    .smoke span:nth-child(4) {
+      left: 70%;
+      animation-delay: 1s;
+      animation-duration: 25s;
+    }
+
+    .smoke span:nth-child(5) {
+      left: 90%;
+      animation-delay: 3s;
+      animation-duration: 19s;
+    }
+
+    @keyframes smokeRise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.15;
+      }
+      50% {
+        opacity: 0.05;
+      }
+      100% {
+        transform: translateY(-1000px) scale(2);
+        opacity: 0;
+      }
