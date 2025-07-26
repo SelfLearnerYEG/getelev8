@@ -61,4 +61,48 @@
         transform: scale(1) skewX(0deg);
       }
       50% {
-        transform:
+        transform: scale(1.04) skewX(1deg);
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo">
+    <span>ELEV</span>
+    <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="vaporGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffb347"/>
+          <stop offset="100%" stop-color="#ff8c00"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Trail/ghost -->
+      <path class="trail" d="M50,10
+                            C70,10 70,50 50,75
+                            C30,100 30,140 50,140
+                            C70,140 70,100 50,75
+                            C30,50 30,10 50,10Z" />
+      
+      <!-- Main glowing loop -->
+      <path class="glow" d="M50,10
+                            C70,10 70,50 50,75
+                            C30,100 30,140 50,140
+                            C70,140 70,100 50,75
+                            C30,50 30,10 50,10Z" />
+    </svg>
+  </div>
+
+  <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
+
+  <footer>© 2025 Elev8. All rights reserved.</footer>
+</body>
+</html>
