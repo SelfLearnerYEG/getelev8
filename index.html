@@ -7,7 +7,8 @@
   <style>
     body {
       margin: 0;
-      background-color: #0a0a0a;
+      background: #0a0a0a;
+      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
@@ -15,9 +16,45 @@
       align-items: center;
       height: 100vh;
       color: white;
+      position: relative;
+    }
+
+    .smoke {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .smoke div {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.05;
+      animation: drift 60s infinite alternate ease-in-out;
+    }
+
+    .smoke div:nth-child(1) {
+      width: 500px; height: 500px;
+      background: #ffa500;
+      top: -100px; left: -150px;
+    }
+
+    .smoke div:nth-child(2) {
+      width: 600px; height: 600px;
+      background: #ff8c00;
+      bottom: -100px; right: -150px;
+      animation-delay: 10s;
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 80px) scale(1.2); }
     }
 
     .logo {
+      z-index: 1;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -31,38 +68,7 @@
       font-size: 1.1rem;
       color: #f0a500;
       text-shadow: 0 0 8px #f0a50066;
-    }
-
-    svg {
-      width: 48px;
-      height: 100px;
-    }
-
-    .glow {
-      fill: none;
-      stroke: url(#vaporGradient);
-      stroke-width: 5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 0 4px #FFA500) drop-shadow(0 0 12px #FFB347);
-      animation: breathe 6s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    .trail {
-      fill: none;
-      stroke: #ffa50033;
-      stroke-width: 5;
-      filter: blur(4px);
-    }
-
-    @keyframes breathe {
-      0%, 100% {
-        transform: scale(1) skewX(0deg);
-      }
-      50% {
-        transform: scale(1.04) skewX(1deg);
-      }
+      z-index: 1;
     }
 
     footer {
@@ -70,13 +76,37 @@
       bottom: 20px;
       font-size: 0.8rem;
       color: #888;
+      z-index: 1;
+    }
+
+    svg {
+      width: 48px;
+      height: 120px;
+    }
+
+    .glow-path {
+      fill: none;
+      stroke: url(#vaporGradient);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 4px #FFA500) drop-shadow(0 0 12px #FFB347);
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Background Smoke -->
+  <div class="smoke">
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Brand Wordmark -->
   <div class="logo">
     <span>ELEV</span>
+
+    <!-- Morphing Infinity SVG -->
     <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="vaporGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -84,25 +114,22 @@
           <stop offset="100%" stop-color="#ff8c00"/>
         </linearGradient>
       </defs>
-
-      <!-- Trail/ghost -->
-      <path class="trail" d="M50,10
-                            C70,10 70,50 50,75
-                            C30,100 30,140 50,140
-                            C70,140 70,100 50,75
-                            C30,50 30,10 50,10Z" />
-      
-      <!-- Main glowing loop -->
-      <path class="glow" d="M50,10
-                            C70,10 70,50 50,75
-                            C30,100 30,140 50,140
-                            C70,140 70,100 50,75
-                            C30,50 30,10 50,10Z" />
+      <path class="glow-path">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="
+            M50,10 C70,10 70,50 50,75 C30,100 30,140 50,140 C70,140 70,100 50,75 C30,50 30,10 50,10Z;
+            M50,10 C80,30 80,60 50,75 C20,90 20,120 50,140 C80,120 80,90 50,75 C20,60 20,30 50,10Z;
+            M50,10 C70,10 70,50 50,75 C30,100 30,140 50,140 C70,140 70,100 50,75 C30,50 30,10 50,10Z
+          " />
+      </path>
     </svg>
   </div>
 
+  <!-- Tagline -->
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
 
+  <!-- Footer -->
   <footer>© 2025 Elev8. All rights reserved.</footer>
+
 </body>
 </html>
