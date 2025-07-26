@@ -4,132 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ELEV8 – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       background: #0a0a0a;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      font-family: 'Inter', sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      color: white;
+      overflow: hidden;
       position: relative;
     }
 
-    .smoke {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .smoke div {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.05;
-      animation: drift 60s infinite alternate ease-in-out;
-    }
-
-    .smoke div:nth-child(1) {
-      width: 500px; height: 500px;
-      background: #ffa500;
-      top: -100px; left: -150px;
-    }
-
-    .smoke div:nth-child(2) {
-      width: 600px; height: 600px;
-      background: #ff8c00;
-      bottom: -100px; right: -150px;
-      animation-delay: 10s;
-    }
-
-    @keyframes drift {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(40px, 80px) scale(1.2); }
-    }
-
     .logo {
-      z-index: 1;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .wordmark {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 2.5rem;
+      justify-content: center;
+      font-size: 3.5rem;
       font-weight: 700;
-      letter-spacing: 4px;
+      letter-spacing: 0.2rem;
+    }
+
+    .wordmark svg {
+      height: 1em;
+      width: 1em;
+      margin-left: -0.1em;
+      transform: translateY(6px);
+    }
+
+    .glow-path {
+      fill: url(#vaporGradient);
+      filter: drop-shadow(0 0 6px #ff9a00);
+      transition: all 0.3s ease;
     }
 
     .tagline {
-      margin-top: 16px;
+      margin-top: 1rem;
       font-size: 1.1rem;
-      color: #f0a500;
-      text-shadow: 0 0 8px #f0a50066;
-      z-index: 1;
+      color: #ffb347;
+      text-shadow: 0 0 6px rgba(255, 165, 0, 0.4);
+    }
+
+    /* Optional animated vapor background */
+    .smoke-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,140,0,0.1) 0%, transparent 80%);
+      animation: drift 20s infinite linear;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    @keyframes drift {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.05); }
+      100% { transform: rotate(360deg) scale(1); }
     }
 
     footer {
       position: absolute;
       bottom: 20px;
-      font-size: 0.8rem;
-      color: #888;
-      z-index: 1;
-    }
-
-    svg {
-      width: 48px;
-      height: 120px;
-    }
-
-    .glow-path {
-      fill: none;
-      stroke: url(#vaporGradient);
-      stroke-width: 5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 0 4px #FFA500) drop-shadow(0 0 12px #FFB347);
+      font-size: 0.75rem;
+      color: #666;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
+  <div class="smoke-bg"></div>
 
-  <!-- Background Smoke -->
-  <div class="smoke">
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Brand Wordmark -->
   <div class="logo">
-    <span>ELEV</span>
-
-    <!-- Morphing Infinity SVG -->
-    <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="vaporGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ffb347"/>
-          <stop offset="100%" stop-color="#ff8c00"/>
-        </linearGradient>
-      </defs>
-      <path class="glow-path">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="
-            M50,10 C70,10 70,50 50,75 C30,100 30,140 50,140 C70,140 70,100 50,75 C30,50 30,10 50,10Z;
-            M50,10 C80,30 80,60 50,75 C20,90 20,120 50,140 C80,120 80,90 50,75 C20,60 20,30 50,10Z;
-            M50,10 C70,10 70,50 50,75 C30,100 30,140 50,140 C70,140 70,100 50,75 C30,50 30,10 50,10Z
-          " />
-      </path>
-    </svg>
+    <div class="wordmark">
+      ELEV
+      <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="vaporGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffb347"/>
+            <stop offset="100%" stop-color="#ff8c00"/>
+          </linearGradient>
+        </defs>
+        <path class="glow-path">
+          <animate attributeName="d" dur="6s" repeatCount="indefinite"
+            values="
+              M50,10 C80,10 80,50 50,75 C20,100 20,140 50,140 C80,140 80,100 50,75 C20,50 20,10 50,10Z;
+              M50,10 C70,30 70,60 50,75 C30,90 30,120 50,140 C70,120 70,90 50,75 C30,60 30,30 50,10Z;
+              M50,10 C80,10 80,50 50,75 C20,100 20,140 50,140 C80,140 80,100 50,75 C20,50 20,10 50,10Z
+            "
+          />
+        </path>
+      </svg>
+    </div>
+    <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
   </div>
 
-  <!-- Tagline -->
-  <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-
-  <!-- Footer -->
   <footer>© 2025 Elev8. All rights reserved.</footer>
-
 </body>
 </html>
