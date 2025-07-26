@@ -12,6 +12,7 @@
       background: #0e0e0e;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow: hidden;
+      color: white;
     }
 
     body {
@@ -20,7 +21,6 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      color: #fff;
       z-index: 1;
     }
 
@@ -28,17 +28,27 @@
       font-size: 3.5rem;
       font-weight: bold;
       letter-spacing: 0.15em;
-      position: relative;
-      z-index: 2;
       display: flex;
       align-items: center;
+      z-index: 2;
+    }
+
+    .rotating-wrapper {
+      display: inline-block;
+      perspective: 800px;
+      margin-left: 0.25em;
     }
 
     .infinity-svg {
-      width: 1.3em;
-      height: 1.3em;
-      margin-left: 0.2em;
-      animation: pulseGlow 2s ease-in-out infinite;
+      width: 1.6em;
+      height: 1.6em;
+      transform-origin: center;
+      animation: rotate3D 12s linear infinite;
+    }
+
+    @keyframes rotate3D {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
     }
 
     .tagline {
@@ -47,7 +57,6 @@
       margin-top: 10px;
       text-shadow: 0 0 10px orange, 0 0 20px orange;
       z-index: 2;
-      position: relative;
     }
 
     footer {
@@ -72,20 +81,20 @@
     .smoke span {
       position: absolute;
       bottom: -300px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 70%);
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.15;
-      animation: smokeRise 30s linear infinite;
+      filter: blur(90px);
+      opacity: 0.08;
+      animation: smokeRise 35s linear infinite;
     }
 
-    .smoke span:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .smoke span:nth-child(2) { left: 30%; animation-delay: 4s; }
-    .smoke span:nth-child(3) { left: 50%; animation-delay: 8s; }
-    .smoke span:nth-child(4) { left: 70%; animation-delay: 2s; }
-    .smoke span:nth-child(5) { left: 90%; animation-delay: 6s; }
+    .smoke span:nth-child(1) { left: 10%; animation-delay: 0s; transform: rotate(20deg); }
+    .smoke span:nth-child(2) { left: 30%; animation-delay: 4s; transform: rotate(-10deg); }
+    .smoke span:nth-child(3) { left: 50%; animation-delay: 8s; transform: rotate(15deg); }
+    .smoke span:nth-child(4) { left: 70%; animation-delay: 2s; transform: rotate(-5deg); }
+    .smoke span:nth-child(5) { left: 90%; animation-delay: 6s; transform: rotate(25deg); }
 
     @keyframes smokeRise {
       0% {
@@ -93,35 +102,56 @@
         opacity: 0.15;
       }
       50% {
-        opacity: 0.08;
+        opacity: 0.05;
       }
       100% {
         transform: translateY(-1200px) scale(2);
         opacity: 0;
       }
     }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 6px orange) drop-shadow(0 0 15px rgba(255,165,0,0.5));
-      }
-      50% {
-        filter: drop-shadow(0 0 12px orange) drop-shadow(0 0 30px rgba(255,165,0,0.7));
-      }
-    }
   </style>
 </head>
 <body>
+  <!-- SMOKE BACKGROUND -->
   <div class="smoke">
     <span></span><span></span><span></span><span></span><span></span>
   </div>
 
+  <!-- LOGO WITH MORPHING GLOWING ROTATING 8 -->
   <div class="logo">
     ELEV
-    <svg class="infinity-svg" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10,25 C10,10 40,10 50,25 C60,40 90,40 90,25 C90,10 60,10 50,25 C40,40 10,40 10,25 Z"
-            fill="orange"/>
-    </svg>
+    <div class="rotating-wrapper">
+      <svg class="infinity-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <path id="morph"
+          d="M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z"
+          fill="none"
+          stroke="orange"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          filter="url(#neon-glow)"
+        >
+          <animate attributeName="d"
+            values="
+              M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z;
+              M50,10 C80,10 80,45 50,50 C20,55 20,90 50,90 C80,90 80,55 50,50 C20,45 20,10 50,10 Z;
+              M50,10 C75,10 75,40 50,50 C25,60 25,90 50,90 C75,90 75,60 50,50 C25,40 25,10 50,10 Z"
+            dur="6s"
+            repeatCount="indefinite" />
+        </path>
+      </svg>
+    </div>
   </div>
 
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
