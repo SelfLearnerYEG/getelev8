@@ -12,12 +12,16 @@
       overflow: hidden;
       background: #0e0e0e;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       position: relative;
+      color: white;
+      z-index: 1;
     }
 
     .logo {
@@ -49,7 +53,7 @@
       z-index: 2;
     }
 
-    /* Smoke styles */
+    /* Smoke container */
     .smoke {
       position: absolute;
       top: 0;
@@ -58,55 +62,56 @@
       height: 100%;
       z-index: 0;
       overflow: hidden;
+      pointer-events: none;
     }
 
     .smoke span {
       position: absolute;
       display: block;
-      bottom: -150px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 80%);
+      bottom: -200px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.07) 0%, transparent 70%);
       animation: smokeRise 20s linear infinite;
       border-radius: 50%;
       opacity: 0.1;
-      filter: blur(30px);
+      filter: blur(40px);
     }
 
     .smoke span:nth-child(1) {
       left: 10%;
       animation-delay: 0s;
-      animation-duration: 18s;
+      animation-duration: 20s;
     }
 
     .smoke span:nth-child(2) {
       left: 30%;
-      animation-delay: 2s;
-      animation-duration: 22s;
+      animation-delay: 3s;
+      animation-duration: 25s;
     }
 
     .smoke span:nth-child(3) {
       left: 50%;
-      animation-delay: 4s;
-      animation-duration: 20s;
+      animation-delay: 6s;
+      animation-duration: 22s;
     }
 
     .smoke span:nth-child(4) {
       left: 70%;
-      animation-delay: 1s;
-      animation-duration: 25s;
+      animation-delay: 2s;
+      animation-duration: 28s;
     }
 
     .smoke span:nth-child(5) {
-      left: 90%;
-      animation-delay: 3s;
-      animation-duration: 19s;
+      left: 85%;
+      animation-delay: 4s;
+      animation-duration: 24s;
     }
 
     @keyframes smokeRise {
       0% {
         transform: translateY(0) scale(1);
-        opacity: 0.15;
+        opacity: 0.12;
       }
       50% {
         opacity: 0.05;
@@ -115,3 +120,25 @@
         transform: translateY(-1000px) scale(2);
         opacity: 0;
       }
+    }
+  </style>
+</head>
+<body>
+  <div class="smoke">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="logo">
+    ELEV<span class="infinity">8</span>
+  </div>
+  <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
+
+  <footer>
+    &copy; 2025 Elev8. All rights reserved.
+  </footer>
+</body>
+</html>
