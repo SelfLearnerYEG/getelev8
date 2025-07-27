@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
@@ -27,25 +27,17 @@
     }
 
     .eight {
-      width: 40px;
-      height: 80px;
+      width: 36px;
+      height: 72px;
     }
 
     .eight path {
       fill: none;
-      stroke: url(#glowGradient);
-      stroke-width: 3.5;
-      filter: drop-shadow(0 0 8px #ff4500);
+      stroke: #ff8000;
+      stroke-width: 4;
       stroke-linecap: round;
       stroke-linejoin: round;
-      animation: shimmerFlow 6s linear infinite;
-      stroke-dasharray: 320;
-      stroke-dashoffset: 0;
-    }
-
-    @keyframes shimmerFlow {
-      0%   { stroke-dashoffset: 320; }
-      100% { stroke-dashoffset: 0; }
+      filter: drop-shadow(0 0 10px #ff6600);
     }
 
     p {
@@ -67,28 +59,12 @@
   <h1>
     ELEV
     <svg class="eight" viewBox="0 0 100 200">
-      <defs>
-        <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="white">
-            <animate attributeName="stop-color"
-                     values="white;#ff4500;#fa8072;white"
-                     dur="3.5s"
-                     repeatCount="indefinite" />
-          </stop>
-          <stop offset="100%" stop-color="#ff4500">
-            <animate attributeName="stop-color"
-                     values="#ff4500;#fa8072;white;#ff4500"
-                     dur="3.5s"
-                     repeatCount="indefinite" />
-          </stop>
-        </linearGradient>
-      </defs>
-      <path d="M50,20 
-               C70,20 70,60 50,80 
-               C30,60 30,20 50,20 
-               M50,120 
-               C70,120 70,160 50,180 
-               C30,160 30,120 50,120" />
+      <path d="M50,25 
+               C70,25 70,75 50,95 
+               C30,75 30,25 50,25 
+               M50,105 
+               C70,105 70,155 50,175 
+               C30,155 30,105 50,105" />
     </svg>
   </h1>
 
