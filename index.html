@@ -22,7 +22,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3em;
+      gap: 0.2em;
     }
 
     .brand-name {
@@ -32,8 +32,8 @@
     }
 
     .glow-8 {
-      width: 24px;
-      height: 100px;
+      width: 28px;
+      height: 64px;
     }
 
     .glow-8 path {
@@ -41,14 +41,15 @@
       stroke: #ff7c00;
       stroke-width: 3;
       stroke-linecap: round;
-      filter: drop-shadow(0 0 4px #ff7c00) drop-shadow(0 0 8px #ff7c00);
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 3px #ff7c00) drop-shadow(0 0 6px #ff7c00);
     }
 
     .tagline {
-      margin-top: 1em;
+      margin-top: 1.2em;
       font-size: 1.3rem;
       color: #ff7c00;
-      text-shadow: 0 0 4px #ff7c00, 0 0 10px #ff7c00;
+      text-shadow: 0 0 4px #ff7c00, 0 0 8px #ff7c00;
     }
 
     footer {
@@ -62,14 +63,16 @@
 <body>
   <div class="brand">
     <span class="brand-name">ELEV</span>
-    <svg class="glow-8" viewBox="0 0 40 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20,5 
-               C35,20 5,35 20,50 
-               C35,65 5,80 20,95" />
+    <svg class="glow-8" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50,20
+               C75,20 75,70 50,70
+               C25,70 25,20 50,20
+               M50,130
+               C75,130 75,180 50,180
+               C25,180 25,130 50,130" />
     </svg>
   </div>
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-
   <footer>© 2025 Elev8. All rights reserved.</footer>
 </body>
 </html>
