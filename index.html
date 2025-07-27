@@ -19,19 +19,26 @@
 
     .logo {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: center;
       font-size: 5rem;
       font-weight: 800;
       letter-spacing: 0.05em;
     }
 
+    .elev {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+    }
+
     .glow8 {
       color: #ff8c00;
-      font-weight: 800;
-      letter-spacing: -0.05em;
       font-family: 'Segoe UI Rounded', sans-serif;
-      font-size: 5rem; /* Match ELEV font size */
+      font-weight: 800;
+      font-size: 4.9rem;
+      margin-left: 0.05em;
+      transform: translateY(1px);
       text-shadow:
         0 0 2px #ff8c00,
         0 0 5px rgba(255, 140, 0, 0.7),
@@ -58,7 +65,7 @@
 </head>
 <body>
   <div class="logo">
-    <span>ELEV</span><span class="glow8">8</span>
+    <span class="elev">ELEV</span><span class="glow8">8</span>
   </div>
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
   <footer>&copy; 2025 Elev8. All rights reserved.</footer>
