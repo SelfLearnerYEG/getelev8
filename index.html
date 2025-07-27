@@ -9,81 +9,67 @@
       margin: 0;
       background: #0a0a0a;
       color: white;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      overflow: hidden;
     }
 
-    .wordmark {
-      font-size: 4rem;
+    h1 {
+      font-size: 3rem;
       font-weight: 700;
-      letter-spacing: 2px;
-      display: flex;
-      align-items: center;
-      gap: 0.2em;
-    }
-
-    .wordmark svg {
-      height: 1em;
-      width: 1em;
-      margin-left: -0.2em;
-      transform: translateY(6px) translateX(-2px);
-    }
-
-    .glow-path {
-      fill: url(#vaporGradient);
-      filter: drop-shadow(0 0 6px #ff9a00);
-      animation: pulse 3s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 6px #ff9a00); }
-      50% { filter: drop-shadow(0 0 12px #ffaa33); }
+      letter-spacing: 4px;
     }
 
     .tagline {
-      color: #f8a100;
+      margin-top: 20px;
       font-size: 1.2rem;
-      margin-top: 1rem;
-      text-align: center;
-      text-shadow: 0 0 4px #ff9a00;
+      color: #f9a825;
+      text-shadow: 0 0 10px #f9a825;
     }
 
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.75rem;
-      color: #666;
+    .glow-8 {
+      width: 40px;
+      height: 80px;
+      margin-left: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg path {
+      fill: none;
+      stroke: #f9a825;
+      stroke-width: 6;
+      filter: drop-shadow(0 0 8px #f9a825);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: morph 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes morph {
+      0% {
+        d: path("M 20 10 C 5 30, 5 50, 20 70 C 35 50, 35 30, 20 10 Z"); /* Upright 8 */
+      }
+      100% {
+        d: path("M 10 40 C 10 20, 30 20, 30 40 C 30 60, 10 60, 10 40 Z"); /* Infinity loop */
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wordmark">
-    ELEV
-    <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="vaporGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#ffa500" />
-          <stop offset="100%" stop-color="#ff4500" />
-        </linearGradient>
-      </defs>
-      <path class="glow-path" d="M50,10 C75,10 75,45 50,75 C25,105 25,140 50,140 C75,140 75,105 50,75 C25,45 25,10 50,10Z">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="
-            M50,10 C75,10 75,45 50,75 C25,105 25,140 50,140 C75,140 75,105 50,75 C25,45 25,10 50,10Z;
-            M50,10 C65,30 65,60 50,75 C35,90 35,120 50,140 C65,120 65,90 50,75 C35,60 35,30 50,10Z;
-            M50,10 C75,10 75,45 50,75 C25,105 25,140 50,140 C75,140 75,105 50,75 C25,45 25,10 50,10Z
-          " />
-      </path>
+  <div class="logo">
+    <h1>ELEV</h1>
+    <svg class="glow-8" viewBox="0 0 40 80">
+      <path d="M 20 10 C 5 30, 5 50, 20 70 C 35 50, 35 30, 20 10 Z"/>
     </svg>
   </div>
-
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-
-  <div class="footer">© 2025 Elev8. All rights reserved.</div>
+  <footer style="position: absolute; bottom: 20px; font-size: 0.8rem; color: #777;">© 2025 Elev8. All rights reserved.</footer>
 </body>
 </html>
