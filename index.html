@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
       margin: 0;
-      background-color: #0a0a0a;
+      background-color: #0d0d0d;
+      color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
-      text-align: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2em;
-    }
-
-    .brand-name {
       font-size: 4rem;
       font-weight: 700;
       letter-spacing: 0.05em;
     }
 
     .glow-8 {
-      width: 28px;
-      height: 64px;
+      width: 30px;
+      height: 80px;
     }
 
     .glow-8 path {
@@ -42,12 +40,12 @@
       stroke-width: 3;
       stroke-linecap: round;
       stroke-linejoin: round;
-      filter: drop-shadow(0 0 3px #ff7c00) drop-shadow(0 0 6px #ff7c00);
+      filter: drop-shadow(0 0 4px #ff7c00) drop-shadow(0 0 6px #ff7c00);
     }
 
     .tagline {
-      margin-top: 1.2em;
-      font-size: 1.3rem;
+      margin-top: 30px;
+      font-size: 1.25rem;
       color: #ff7c00;
       text-shadow: 0 0 4px #ff7c00, 0 0 8px #ff7c00;
     }
@@ -55,24 +53,30 @@
     footer {
       position: absolute;
       bottom: 20px;
-      font-size: 0.9rem;
-      color: #444;
+      font-size: 0.8rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="brand">
-    <span class="brand-name">ELEV</span>
+
+  <div class="logo-container">
+    <div class="brand">ELEV</div>
     <svg class="glow-8" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50,20
-               C75,20 75,70 50,70
-               C25,70 25,20 50,20
-               M50,130
-               C75,130 75,180 50,180
-               C25,180 25,130 50,130" />
+      <path d="
+        M50,40
+        C75,40 75,100 50,100
+        C25,100 25,40 50,40
+        M50,100
+        C75,100 75,160 50,160
+        C25,160 25,100 50,100
+      "/>
     </svg>
   </div>
+
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
+
   <footer>© 2025 Elev8. All rights reserved.</footer>
+
 </body>
 </html>
