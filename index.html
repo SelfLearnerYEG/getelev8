@@ -1,75 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
-      margin: 0;
       background-color: #0a0a0a;
       color: white;
       font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      text-align: center;
     }
 
-    h1 {
-      font-size: 3em;
-      font-weight: 700;
-      margin: 0;
+    .logo {
       display: flex;
       align-items: center;
-      gap: 0.1em;
+      gap: 8px;
     }
 
-    .eight {
-      width: 30px;
-      height: 50px;
-      margin-left: -5px;
+    .brand-text {
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    .eight path {
-      fill: none;
-      stroke: #ff8000;
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 0 10px #ff6600);
+    .glow {
+      filter: drop-shadow(0 0 4px #ff8000)
+              drop-shadow(0 0 8px #ff8000)
+              drop-shadow(0 0 12px #ff8000);
+      animation: subtlePulse 3s ease-in-out infinite;
     }
 
-    p {
-      margin-top: 1em;
-      color: #ffa733;
-      font-size: 1.2em;
-      text-shadow: 0 0 6px #ff4500;
+    @keyframes subtlePulse {
+      0%, 100% {
+        stroke-width: 5;
+        opacity: 1;
+      }
+      50% {
+        stroke-width: 5.25;
+        opacity: 0.9;
+      }
+    }
+
+    .tagline {
+      margin-top: 30px;
+      color: #ff8000;
+      font-size: 22px;
+      font-weight: 500;
+      text-shadow: 0 0 5px #ff8000;
     }
 
     footer {
       position: absolute;
       bottom: 20px;
       color: #555;
-      font-size: 0.75em;
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
-  <h1>
-    ELEV
-    <svg class="eight" viewBox="0 0 100 100">
-      <path d="M50,10
-               C80,10 80,50 50,50
-               C20,50 20,90 50,90
-               C80,90 80,50 50,50
-               C20,50 20,10 50,10Z" />
-    </svg>
-  </h1>
 
-  <p>Lifestyle Vapor. Coming Soon.</p>
+  <div class="logo">
+    <span class="brand-text">ELEV</span>
+    <svg viewBox="0 0 60 100" width="40" height="100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30,20 
+               C40,20 40,50 30,50 
+               C20,50 20,20 30,20 
+               Z
+               M30,50 
+               C40,50 40,80 30,80 
+               C20,80 20,50 30,50 
+               Z"
+            fill="none"
+            stroke="#ff8000"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="glow" />
+    </svg>
+  </div>
+
+  <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
 
   <footer>© 2025 Elev8. All rights reserved.</footer>
+
 </body>
 </html>
