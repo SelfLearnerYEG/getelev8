@@ -1,93 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
-      background-color: #0a0a0a;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      background-color: #0a0a0a;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+      color: white;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .brand-text {
-      font-size: 100px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .text {
+      font-size: 115px;
+      font-weight: bold;
+      color: white;
     }
 
-    .glow {
-      filter: drop-shadow(0 0 4px #ff8000)
-              drop-shadow(0 0 8px #ff8000)
-              drop-shadow(0 0 12px #ff8000);
-      animation: subtlePulse 3s ease-in-out infinite;
+    .glow-8 {
+      width: 32px;
+      height: 115px;
     }
 
-    @keyframes subtlePulse {
-      0%, 100% {
-        stroke-width: 5;
-        opacity: 1;
-      }
-      50% {
-        stroke-width: 5.25;
-        opacity: 0.9;
-      }
+    .glow-8 path {
+      fill: none;
+      stroke: #ff7c00;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 5px #ff7c00) drop-shadow(0 0 10px #ff7c00);
     }
 
     .tagline {
-      margin-top: 30px;
-      color: #ff8000;
+      margin-top: 40px;
       font-size: 22px;
-      font-weight: 500;
-      text-shadow: 0 0 5px #ff8000;
+      color: #ff7c00;
+      text-shadow: 0 0 6px #ff7c00;
     }
 
-    footer {
-      position: absolute;
-      bottom: 20px;
-      color: #555;
-      font-size: 12px;
+    @media (max-width: 600px) {
+      .text { font-size: 60px; }
+      .glow-8 { height: 60px; width: 18px; }
+      .tagline { font-size: 16px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
   <div class="logo">
-    <span class="brand-text">ELEV</span>
-    <svg viewBox="0 0 60 100" width="40" height="100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M30,20 
-               C40,20 40,50 30,50 
-               C20,50 20,20 30,20 
-               Z
-               M30,50 
-               C40,50 40,80 30,80 
-               C20,80 20,50 30,50 
-               Z"
-            fill="none"
-            stroke="#ff8000"
-            stroke-width="5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="glow" />
+    <div class="text">ELEV</div>
+    <svg class="glow-8" viewBox="0 0 32 115" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16,0 
+               C30,25 2,40 16,58 
+               C30,75 2,90 16,115" />
     </svg>
   </div>
 
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-
-  <footer>© 2025 Elev8. All rights reserved.</footer>
 
 </body>
 </html>
