@@ -1,68 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
       margin: 0;
-      background: #0a0a0a;
+      background-color: #0a0a0a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
-      font-family: sans-serif;
-      color: #fff;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
     }
 
-    .logo-container {
+    h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin: 0;
       display: flex;
       align-items: center;
-      gap: 0.1rem; /* reduced spacing */
+      gap: 0.2em;
     }
 
     .eight {
-      width: 18px; /* narrowed the 8 */
-      height: 64px;
-      margin-left: 2px; /* tighter spacing */
+      width: 40px;
+      height: 80px;
     }
 
     .eight path {
       fill: none;
-      stroke: orange;
-      stroke-width: 8;
-      filter: drop-shadow(0 0 10px orange) drop-shadow(0 0 20px orange);
+      stroke: url(#glowGradient);
+      stroke-width: 3.5;
+      filter: drop-shadow(0 0 8px #ff4500);
       stroke-linecap: round;
       stroke-linejoin: round;
+      animation: shimmerFlow 6s linear infinite;
+      stroke-dasharray: 320;
+      stroke-dashoffset: 0;
     }
 
-    .tagline {
-      margin-top: 1rem;
-      color: orange;
-      font-weight: 400;
-      font-size: 1rem;
-      text-shadow: 0 0 6px orange;
+    @keyframes shimmerFlow {
+      0%   { stroke-dashoffset: 320; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    p {
+      margin-top: 1em;
+      color: #ffa733;
+      font-size: 1.2em;
+      text-shadow: 0 0 6px #ff4500;
     }
 
     footer {
       position: absolute;
-      bottom: 10px;
-      font-size: 0.75rem;
-      color: #777;
+      bottom: 20px;
+      color: #555;
+      font-size: 0.75em;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <h1 style="letter-spacing: 1px;">ELEV</h1>
-    <svg class="eight" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50,20 C65,20 65,100 50,100 C35,100 35,180 50,180 
-               C65,180 65,100 50,100 C35,100 35,20 50,20 Z"/>
+  <h1>
+    ELEV
+    <svg class="eight" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="white">
+            <animate attributeName="stop-color"
+                     values="white;#ff4500;#fa8072;white"
+                     dur="3.5s"
+                     repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stop-color="#ff4500">
+            <animate attributeName="stop-color"
+                     values="#ff4500;#fa8072;white;#ff4500"
+                     dur="3.5s"
+                     repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+      </defs>
+      <path d="M50,20 
+               C70,20 70,60 50,80 
+               C30,60 30,20 50,20 
+               M50,120 
+               C70,120 70,160 50,180 
+               C30,160 30,120 50,120" />
     </svg>
-  </div>
+  </h1>
 
-  <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
+  <p>Lifestyle Vapor. Coming Soon.</p>
+
   <footer>© 2025 Elev8. All rights reserved.</footer>
 </body>
 </html>
