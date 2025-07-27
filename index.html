@@ -2,65 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #0a0a0a;
+      background-color: #0d0d0d;
+      color: white;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
-      color: white;
+      margin: 0;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
-      font-size: 4rem;
-      font-weight: 900;
+      justify-content: center;
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
     }
 
-    .brand span.elev {
-      color: white;
-    }
-
-    .brand span.glow8 {
+    .glow8 {
       color: #ff8c00;
       text-shadow:
-        0 0 10px #ff8c00,
-        0 0 20px #ff8c00,
-        0 0 30px #ff8c00;
-      padding-left: 0.2rem;
+        0 0 4px #ff8c00,
+        0 0 8px #ff8c00,
+        0 0 12px #ff8800;
     }
 
     .tagline {
-      font-size: 1.5rem;
       margin-top: 1rem;
+      font-size: 1.5rem;
       color: #ff8c00;
       text-shadow:
-        0 0 5px #ff8c00,
-        0 0 10px #ff8c00;
+        0 0 2px #ff8c00,
+        0 0 4px #ff8c00,
+        0 0 6px #ff8c00;
     }
 
     footer {
       position: absolute;
-      bottom: 20px;
+      bottom: 1rem;
       font-size: 0.8rem;
-      color: #444;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="brand">
-    <span class="elev">ELEV</span>
-    <span class="glow8">8</span>
+  <div class="logo">
+    <span>ELEV</span><span class="glow8">8</span>
   </div>
   <div class="tagline">Lifestyle Vapor. Coming Soon.</div>
-  <footer>© 2025 Elev8. All rights reserved.</footer>
+  <footer>&copy; 2025 Elev8. All rights reserved.</footer>
 </body>
 </html>
