@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ELEV8 – Coming Soon</title>
   <style>
     body {
       background-color: #0d0d0d;
-      color: white;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
@@ -27,28 +26,18 @@
     }
 
     .glow8 {
-      color: #ff8c00;
+      font-family: 'Segoe UI Rounded', sans-serif;
       font-weight: 800;
       letter-spacing: -0.05em;
-      font-family: 'Segoe UI Rounded', sans-serif;
       font-size: 5rem;
       line-height: 1.1em;
       transform: translateY(2px);
-      text-shadow:
-        0 0 2px #ff8c00,
-        0 0 5px rgba(255, 140, 0, 0.7),
-        0 0 10px rgba(255, 140, 0, 0.3);
     }
 
     .tagline {
       margin-top: 1rem;
       font-size: 1.5rem;
-      font-weight: normal; /* removed bold */
-      color: #ff8c00;
-      text-shadow:
-        0 0 2px #ff8c00,
-        0 0 4px #ff8c00,
-        0 0 6px #ff8c00;
+      font-weight: 400;
     }
 
     footer {
@@ -57,9 +46,35 @@
       font-size: 0.8rem;
       color: #555;
     }
+
+    /* === THEME: DEEP NEON TEAL === */
+    body.teal .glow8, body.teal .tagline {
+      color: #00ffc8;
+      text-shadow:
+        0 0 2px #00ffc8,
+        0 0 5px rgba(0, 255, 200, 0.7),
+        0 0 10px rgba(0, 255, 200, 0.3);
+    }
+
+    /* === THEME: LUXE WHITE / ROSE GOLD === */
+    body.rose .glow8 {
+      color: #e48e97;
+      text-shadow:
+        0 0 2px #e48e97,
+        0 0 4px rgba(228, 142, 151, 0.6),
+        0 0 6px rgba(228, 142, 151, 0.3);
+    }
+
+    body.rose .tagline {
+      color: #ffffff;
+      text-shadow:
+        0 0 3px #fff,
+        0 0 6px rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.1);
+    }
   </style>
 </head>
-<body>
+<body class="teal"> <!-- Switch to "rose" here to preview rose gold -->
   <div class="logo">
     <span>ELEV</span><span class="glow8">8</span>
   </div>
